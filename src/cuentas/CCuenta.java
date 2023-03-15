@@ -3,8 +3,13 @@
  * and open the template in the editor.
  */
 
+
 package cuentas;
 
+/** @author Norman
+ * @version 1.1
+ * @since 1.0
+ */
 
 public class CCuenta {
 
@@ -73,6 +78,10 @@ public class CCuenta {
 
     public void ingresar(double cantidad) throws Exception
     {
+        /** @exception Si cantidad es menor a 0
+         * @throws Se lanza una expcepcion con el mensaje de que no se puede ingresar
+         * una cantidad negativa
+         */
         if (cantidad<0)
             throw new Exception("No se puede ingresar una cantidad negativa");
         setSaldo(getSaldo() + cantidad);
@@ -80,8 +89,15 @@ public class CCuenta {
 
     public void retirar(double cantidad) throws Exception
     {
+        /** @exception Si cantidad es igual o menor a 0
+         * @throws Se lanza una excepcion con el mensaje de que no se puede retirar
+         * una cantidad negativa
+         */
         if (cantidad <= 0)
             throw new Exception ("No se puede retirar una cantidad negativa");
+        /** @exception Si estado es menor a cantidad
+         * @throws Se lanza una excepcion con el mensaje de que no hay suficiente saldo
+         */
         if (estado()< cantidad)
             throw new Exception ("No se hay suficiente saldo");
         setSaldo(getSaldo() - cantidad);
